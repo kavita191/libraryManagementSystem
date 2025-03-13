@@ -36,7 +36,7 @@ public class App {
 			break;
 		}
         case 2: {
-			registerUser(null, null);
+			registerUser();
         	break;
 		}
         case 3: {
@@ -70,9 +70,10 @@ public class App {
 		
 	}
 
-	private static void registerUser(String eamil, String kavi) {
+	private static void registerUser() {
 		// TODO Auto-generated method stub
-		User User =new User("kavita",eamil,kavi);
+		User User =getUserInput();
+		users.add(User);
 		
 		
 	}
@@ -104,6 +105,18 @@ public class App {
 		  int id = scanner.nextInt();
 		  Book book = new EBook(title, author, id, BookCategory.NON_FICTION, "abc.com", 24);
 		  return book;
+
+	}
+	
+	private static User getUserInput() {
+		  System.out.println("Enter User name");
+		  String name = scanner.next();
+		  System.out.println("Enter user email");
+		  String email = scanner.next();
+		  System.out.println("Enter user id");
+		  String id = scanner.next();
+		  User user = new User(id, name, email);
+		  return user;
 
 	}
 }
